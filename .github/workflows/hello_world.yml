@@ -1,0 +1,28 @@
+name: Hello World Test
+
+on:
+  workflow_dispatch:        # Manual trigger (button in Actions tab)
+  push:                     # Also runs when you push any code
+    branches: [ main ]
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print a message
+        run: echo "👋 Hello! GitHub Actions is working!"
+
+      - name: Show current date and time
+        run: date
+
+      - name: Show Python version
+        run: python3 --version
+
+      - name: Run a small Python script
+        run: |
+          python3 -c "
+          name = 'GitHub Actions'
+          print(f'Hello from {name}!')
+          print('Your workflow ran successfully 🎉')
+          "
